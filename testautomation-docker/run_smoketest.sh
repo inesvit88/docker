@@ -9,13 +9,13 @@ show_off()
   echo "[__  |\/| |  | |_/  |___  |  |___ [__   |  "
   echo "___] |  | |__| | \_ |___  |  |___ ___]  |  "
   echo "Chuck Norris does NOT use a computer, because a computer does everything slower than Chuck Norris."
-# python3 ./cnmod/quoteoftheday.py
+  python3 ./cnmod/quoteoftheday.py
 }
 
 spinner()
 {
   local pid=$1
-  local delay=0.15
+  local delay=0.1
   local spinstr='|/-\'
   while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
     local temp=${spinstr#?}
@@ -43,8 +43,8 @@ docker run -itd --name $NAME_TAG-quark --net grid $IMAGE_TAG \
   && docker exec -it $NAME_TAG-quark /usr/bin/python3 /opt/pytest/google_smoke_test.py
 
 echo "[.] cleanup after the test run..."
-docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker stop > /dev/null
-docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker rm > /dev/null
+docker ps -a --format '{{.Names}}'  | grep --color=auto $NAME_TAG | xargs docker stop
+docker ps -a --format '{{.Names}}'  | grep --color=auto $NAME_TAG | xargs docker rm
 docker rmi $IMAGE_TAG
 docker network prune -f
 
