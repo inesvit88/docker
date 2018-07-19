@@ -8,7 +8,7 @@ show_off()
   echo "____ _  _ ____ _  _ ____ ___ ____ ____ ___ "
   echo "[__  |\/| |  | |_/  |___  |  |___ [__   |  "
   echo "___] |  | |__| | \_ |___  |  |___ ___]  |  "
-  echo "Chuck Norris doesn't use a computer because a computer does everything slower than Chuck Norris."
+  echo "Chuck Norris does NOT use a computer, because a computer does everything slower than Chuck Norris."
 }
 
 spinner()
