@@ -5,7 +5,7 @@
 ./run_smoketest.sh
 
 # --------------------------------------------------------------------------
-#			MANUAL: STEP BY STEP  !!!! OUTDATED !!!!
+#			MANUAL: STEP BY STEP 
 # --------------------------------------------------------------------------
 # 1. build master image
 
@@ -23,7 +23,7 @@ docker run -itd --name pysmoketest --net grid testautomation-ms:1.3
 
 # 4. execute a simple script to test the page title
 
-docker exec -ti pysmoketest /usr/bin/python3 /opt/pytest/google_conn.py
+docker exec -ti pysmoketest /usr/bin/python3 /opt/pytest/google_smoke_test.py
 
 
 # If all goes well, congrats!
