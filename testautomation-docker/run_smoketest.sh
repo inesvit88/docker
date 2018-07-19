@@ -7,7 +7,8 @@ show_off()
 {
   echo "____ _  _ ____ _  _ ____ ___ ____ ____ ___ "
   echo "[__  |\/| |  | |_/  |___  |  |___ [__   |  "
-  echo "___] |  | |__| | \_ |___  |  |___ ___]  |  $1"
+  echo "___] |  | |__| | \_ |___  |  |___ ___]  |  "
+  echo "Chuck Norris doesn't use a computer because a computer does everything slower than Chuck Norris."
 }
 
 spinner()
