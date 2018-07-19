@@ -17,8 +17,7 @@ spinner()
     done
     printf "    \b\b\b\b"
 }
-
-echo -ne "[*] build the image... may take a while ~ 2-3mins look@the spinner meanwhile => "
+echo -ne "\x0a[*] building the image... may take a while ~ 2-3mins look@the spinner meanwhile => "
 docker build -t $IMAGE_TAG . >/dev/null &
 spinner $!
 
@@ -30,7 +29,7 @@ docker network create grid \
 echo "[*] add pysmoketest container to the grid and exec the test..."
 docker run -itd --name $NAME_TAG-quark --net grid $IMAGE_TAG \
   && sleep 5 \
-  && docker exec -it $NAME_TAG-quark /usr/bin/python3 /opt/pytest/google_conn.py
+  && docker exec -it $NAME_TAG-quark /usr/bin/python3 /opt/pytest/google_smoke_test.py $NAME_TAG-selenium-hub.grid
 
 echo "[*] cleanup after the test run..."
 docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker stop
