@@ -9,6 +9,7 @@ show_off()
   echo "[__  |\/| |  | |_/  |___  |  |___ [__   |  "
   echo "___] |  | |__| | \_ |___  |  |___ ___]  |  "
   echo "Chuck Norris does NOT use a computer, because a computer does everything slower than Chuck Norris."
+# python3 ./cnmod/quoteoftheday.py
 }
 
 spinner()
@@ -41,9 +42,9 @@ docker run -itd --name $NAME_TAG-quark --net grid $IMAGE_TAG \
   && sleep 5 \
   && docker exec -it $NAME_TAG-quark /usr/bin/python3 /opt/pytest/google_smoke_test.py
 
-echo "[*] cleanup after the test run..."
-docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker stop
-docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker rm
+echo "[.] cleanup after the test run..."
+docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker stop > /dev/null
+docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker rm > /dev/null
 docker rmi $IMAGE_TAG
 docker network prune -f
 
