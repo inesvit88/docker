@@ -18,7 +18,7 @@ spinner()
     printf "    \b\b\b\b"
 }
 echo -ne "\x0a[*] building the image... may take a while ~ 2-3mins look@the spinner meanwhile => "
-docker build -t $IMAGE_TAG . >/dev/null &
+docker build -q -t $IMAGE_TAG . 
 spinner $!
 
 echo -ne "\x0a[*] starting selenium grid..."
