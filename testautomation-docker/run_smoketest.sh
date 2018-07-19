@@ -9,7 +9,7 @@ show_off()
   echo "[__  |\/| |  | |_/  |___  |  |___ [__   |  "
   echo "___] |  | |__| | \_ |___  |  |___ ___]  |  "
   echo "Chuck Norris does NOT use a computer, because a computer does everything slower than Chuck Norris."
-  python3 ./cnmod/quoteoftheday.py
+  #python3 ./cnmod/quoteoftheday.py
 }
 
 spinner()
