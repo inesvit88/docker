@@ -7,8 +7,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class TestGoogleConn(unittest.TestCase):
 
     def setUp(self):
-	hub_hostname=sys.argv[1]
-        self.browser = webdriver.Remote(command_executor='http://' + str(hub_hostname) + ':4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME) 
+        self.browser = webdriver.Remote(command_executor='http://smoketest-selenium-hub:4444/wd/hub', desired_capabilities=DesiredCapabilities.CHROME) 
         self.addCleanup(self.browser.quit)
 
     def test_PageTitle(self):
