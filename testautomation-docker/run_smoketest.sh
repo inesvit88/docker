@@ -3,22 +3,31 @@
 IMAGE_TAG="testautomation-ms:1.3"
 NAME_TAG="smoketest"
 
+show_off()
+{
+  echo "____ _  _ ____ _  _ ____ ___ ____ ____ ___ "
+  echo "[__  |\/| |  | |_/  |___  |  |___ [__   |  "
+  echo "___] |  | |__| | \_ |___  |  |___ ___]  |  $1"
+}
+
 spinner()
 {
-    local pid=$1
-    local delay=0.15
-    local spinstr='|/-\'
-    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf " [%c]  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b\b\b\b"
-    done
-    printf "    \b\b\b\b"
+  local pid=$1
+  local delay=0.15
+  local spinstr='|/-\'
+  while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+    local temp=${spinstr#?}
+    printf " [%c]  " "$spinstr"
+    local spinstr=$temp${spinstr%"$temp"}
+    sleep $delay
+    printf "\b\b\b\b\b\b"
+  done
+  printf "    \b\b\b\b"
 }
-echo -ne "\x0a[*] building the image... may take a while ~ 2-3mins look@the spinner meanwhile => "
-docker build -q -t $IMAGE_TAG . 
+
+show_off
+echo -ne "\x0a[*] building the image...may take a while ~ 2-3mins, look @za spinner meanwhile => "
+docker build -q -t $IMAGE_TAG . &
 spinner $!
 
 echo -ne "\x0a[*] starting selenium grid..."
