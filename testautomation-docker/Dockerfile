@@ -1,7 +1,7 @@
 FROM ubuntu:18.10 
 
 RUN apt update -y \
- && apt install -y python3 python3-pip netcat vim
+ && apt install -y python3 python3-pip
 
 RUN pip3 install selenium
 RUN pip3 install pytest-html
