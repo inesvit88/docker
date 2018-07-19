@@ -7,4 +7,4 @@ RUN pip3 install selenium
 RUN pip3 install pytest-html
 
 RUN mkdir -p /opt/pytest/testrail
-ADD google_conn.py /opt/pytest/google_conn.py
+ADD tests/google_conn.py /opt/pytest/google_conn.py
