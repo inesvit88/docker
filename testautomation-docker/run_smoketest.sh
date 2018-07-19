@@ -40,10 +40,10 @@ docker run -itd --name $NAME_TAG-quark --net grid $IMAGE_TAG \
   && sleep 5 \
   && docker exec -it $NAME_TAG-quark /usr/bin/python3 /opt/pytest/google_smoke_test.py
 
-#echo "[*] cleanup after the test run..."
-#docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker stop
-#docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker rm
-#docker rmi $IMAGE_TAG
-#docker network prune -f
+echo "[*] cleanup after the test run..."
+docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker stop
+docker ps -a --format '{{.Names}}'  | grep $NAME_TAG | xargs docker rm
+docker rmi $IMAGE_TAG
+docker network prune -f
 
 echo "[*] Done"
